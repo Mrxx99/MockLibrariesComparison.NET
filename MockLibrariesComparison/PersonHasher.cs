@@ -11,6 +11,7 @@ namespace MockLibrariesComparison
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(person.LastName);
             hashCode = hashCode * -1521134295 + person.Birthday.GetHashCode();
             hashCode = hashCode * -1521134295 + person.Heigth.GetHashCode();
+            //bool b = person.IsRelevant;
             return hashCode;
         }
 

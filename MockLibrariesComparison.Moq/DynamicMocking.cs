@@ -14,17 +14,17 @@ namespace MockLibrariesComparison.Moq
         {
             var person = new Mock<IPerson>(MockBehavior.Strict);
 
-            //person.Setup(x => x.FirstName).Returns((string)null).Verifiable();
-            //person.Setup(x => x.LastName).Returns((string)null).Verifiable();
-            //person.Setup(x => x.Birthday).Returns(new DateTime()).Verifiable();
-            //person.Setup(x => x.Heigth).Returns(0).Verifiable();
+            person.Setup(x => x.FirstName).Returns((string)null).Verifiable();
+            person.Setup(x => x.LastName).Returns((string)null).Verifiable();
+            person.Setup(x => x.Birthday).Returns(new DateTime()).Verifiable();
+            person.Setup(x => x.Heigth).Returns(0).Verifiable();
 
 
-            foreach (var propertyInfo in typeof(IPerson).GetProperties().Where(p => Attribute.IsDefined(p, typeof(ShouldBeCalledAttribute))))
-            {
-                ExpectPropertyGet(person, propertyInfo);
+            //foreach (var propertyInfo in typeof(IPerson).GetProperties().Where(p => Attribute.IsDefined(p, typeof(ShouldBeCalledAttribute))))
+            //{
+            //    ExpectPropertyGet(person, propertyInfo);
 
-            }
+            //}
 
             PersonHasher.GetHashCode(person.Object);
 
